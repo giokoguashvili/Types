@@ -1,8 +1,10 @@
 using System;
+using Types.Core.Union.Kind2;
+using static Types.Core.Union.UnionExts;
 
 namespace Types.Core.Union
 {
-    public class Either<TLeft, TRight> : Union<TLeft, TRight>,
+    public class Either<TLeft, TRight> : IUnion<TLeft, TRight>,
         IMonad<Either<TLeft, TRight>, TLeft, TRight>
            where TLeft : class
            where TRight : class
@@ -15,7 +17,7 @@ namespace Types.Core.Union
             where M1 : IMonad<M1, T2, TRight>
             where T2 : class
         {
-            return (M1)Match(m, (e) => (IMonad<M1, T2, TRight>)new Either<T2, TRight>(e));
+            return (M1)UnionExts.Match(this, m, (e) => (IMonad<M1, T2, TRight>)new Either<T2, TRight>(e));
         }
     }
 }
