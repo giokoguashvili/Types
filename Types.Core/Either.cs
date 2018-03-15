@@ -6,7 +6,7 @@ namespace Types.Core.Monads
 {
     public class Either<T0, T1> : 
         IUnion<T0, T1>,
-        IFunctor<Either<T0, T1>, T0, T1>,
+        IEitherFunctor<T0, T1>,
         IMonad<Either<T0, T1>, T0, T1>
            where T0 : class
            where T1 : class
@@ -46,14 +46,22 @@ namespace Types.Core.Monads
         {
             return (M1)this.Match(m, (e) => new M1().Retrun(e));
         }
-
+        
         public F1 Fmap<F1, T2>(Func<T0, T2> fmap)
-            where F1 : IFunctor<F1, T2, T1>, new()
+            where F1 : class, IFunctor<F1, T2, T1>, new()
             where T2 : class
         {
             return this.Match(
                         (a) => new F1().Retrun(fmap(a)),
                         (e) => new F1().Retrun(e)
+                    );
+        }
+
+        public Either<T2, T1> Fmap<T2>(Func<T0, T2> fmap) where T2 : class
+        {
+            return this.Match(
+                        (a) => new Either<T2, T1>(fmap(a)),
+                        (e) => new Either<T2, T1>(e)
                     );
         }
     }
