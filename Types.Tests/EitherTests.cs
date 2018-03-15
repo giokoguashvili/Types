@@ -12,7 +12,7 @@ namespace Types.Tests
         {
             Assert
                 .AreEqual(
-                    (27 + 3).ToString(),
+                    new Number(27 + 3).ToString(),
                     new Either<Number, Error>(
                         new Number(27)
                     )
@@ -22,7 +22,7 @@ namespace Types.Tests
                              )
                     )
                     .Match(
-                        (sum) => sum.Value.ToString(),
+                        (sum) => sum.ToString(),
                         (e) => e.Message
                     )
                 );
@@ -39,7 +39,7 @@ namespace Types.Tests
                              )
                     )
                     .Match(
-                        (sum) => sum.Value.ToString(),
+                        (sum) => sum.ToString(),
                         (e) => e.Message
                     )
                 );
