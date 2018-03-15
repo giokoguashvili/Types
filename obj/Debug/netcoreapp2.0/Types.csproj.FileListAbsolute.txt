@@ -1,4 +1,0 @@
-C:\Users\g.koguashvili\Types\obj\Debug\netcoreapp2.0\Types.csprojResolveAssemblyReference.cache
-C:\Users\g.koguashvili\Types\obj\Debug\netcoreapp2.0\Types.csproj.CoreCompileInputs.cache
-C:\Users\g.koguashvili\Types\obj\Debug\netcoreapp2.0\Types.AssemblyInfoInputs.cache
-C:\Users\g.koguashvili\Types\obj\Debug\netcoreapp2.0\Types.AssemblyInfo.cs
