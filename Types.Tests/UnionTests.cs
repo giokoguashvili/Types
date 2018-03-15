@@ -1,11 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Types.Core.Union;
+using Types.Tests.Common;
 
 namespace Types.Tests
 {
-
-    public class A { }
-    public class B { }
 
     [TestClass]
     public class UnionTests

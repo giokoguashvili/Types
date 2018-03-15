@@ -1,10 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Types.Core.Union;
+using Types.Tests.Common;
 
 namespace Types.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class EitherTests
     {
         [TestMethod]
         public void Either_Bind_with_result_and_error()

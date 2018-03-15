@@ -1,4 +1,4 @@
-﻿namespace Types.Tests
+namespace Types.Tests.Common
 {
     public class Number
     {
