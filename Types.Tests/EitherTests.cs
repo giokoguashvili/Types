@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Types.Core.Monads;
 using Types.Core.Union;
 using Types.Tests.Common;
 
@@ -13,11 +14,11 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                     new Number(27 + 3).ToString(),
-                    new Either<Number, Error>(
+                    new EitherM<Number, Error>(
                         new Number(27)
                     )
                     .Bind(
-                        a => new Either<Number, Error>(
+                        a => new EitherM<Number, Error>(
                                   new Number(a.Value + 3)
                              )
                     )
@@ -30,11 +31,11 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                     "Error",
-                    new Either<Number, Error>(
+                    new EitherM<Number, Error>(
                         new Error("Error")
                     )
                     .Bind(
-                        a => new Either<Number, Error>(
+                        a => new EitherM<Number, Error>(
                                   new Number(a.Value + 3)
                              )
                     )

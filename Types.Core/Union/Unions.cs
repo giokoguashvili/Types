@@ -3,7 +3,7 @@ using Types.Core.Union.Kind2;
 
 namespace Types.Core.Union
 {
-    public static class UnionExts
+    public static class Unions
     {
         public static TResult Match<T0, T1, TResult>(
             this IUnion<T0, T1> u, 

@@ -1,5 +1,4 @@
 using System;
-using static Types.Core.Union.UnionExts;
 
 namespace Types.Core.Union.Kind2
 {
