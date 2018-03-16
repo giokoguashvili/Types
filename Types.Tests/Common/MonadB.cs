@@ -2,7 +2,7 @@
 
 namespace Types.Tests.Common
 {
-    public class MonadB : TEither<B, Error>.T<MonadB>
+    public class MonadB : TEither<B, Error>.ParentType<MonadB>
     {
         public MonadB(B value) : base(value)
         {

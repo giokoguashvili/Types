@@ -1,6 +1,6 @@
 namespace Types.Core.Either
 {
-    public class Either<T0, T1> : TEither<T0, T1>.T<Either<T0, T1>>
+    public class Either<T0, T1> : TEither<T0, T1>.ParentType<Either<T0, T1>>
         where T0 : class
         where T1 : class
     {

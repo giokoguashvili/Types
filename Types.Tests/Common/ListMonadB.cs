@@ -5,7 +5,7 @@ using Types.Core.List;
 
 namespace Types.Tests.Common
 {
-    public class ListMonadB : TList<String>.T<ListMonadB>
+    public class ListMonadB : TList<String>.ParentType<ListMonadB>
     {
         public ListMonadB(params string[] strs)
             : this(strs.ToList())

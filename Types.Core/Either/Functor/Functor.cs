@@ -1,6 +1,7 @@
 ﻿using System;
 using Types.Core.Either.Monad;
 using Types.Core.Union;
+using Types.Core.Union.Kind1;
 
 namespace Types.Core.Either.Functor
 {

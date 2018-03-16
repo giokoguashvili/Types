@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Types.Core.Either;
 using Types.Core.Union;
+using Types.Core.Union.Kind1;
 using Types.Tests.Common;
 using static Types.Core.Either.Functor.Functor;
 using static Types.Core.Either.Monad.Monad;

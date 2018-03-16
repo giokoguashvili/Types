@@ -1,6 +1,6 @@
 using System;
 
-namespace Types.Core.Union
+namespace Types.Core.Union.Kind1
 {
 
     public class Union<T0, T1> : TUnion<T0, T1>

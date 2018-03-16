@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Types.Core.List;
+using Types.Core.List.Monad;
 using Types.Core.Union;
 using Types.Tests.Common;
 
