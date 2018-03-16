@@ -1,3 +1,5 @@
+using Types.Core.Either;
+
 namespace Types.Core.Monads
 {
     public class Either<T0, T1> : TEither<T0, T1>.T<Either<T0, T1>>

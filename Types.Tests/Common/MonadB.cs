@@ -1,4 +1,5 @@
-﻿using Types.Core.Monads;
+﻿using Types.Core.Either;
+using Types.Core.Monads;
 using Types.Tests.Common;
 
 namespace Types.Tests
