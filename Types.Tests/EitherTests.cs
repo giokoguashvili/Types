@@ -7,30 +7,12 @@ using static Types.Core.Functors;
 
 namespace Types.Tests
 {
-
-    public class NumberMonad : IEither<Number, Error>.M<NumberMonad>
-    {
-        public NumberMonad(Number value) : base(value)
-        {
-        }
-
-        public NumberMonad(Error value) : base(value)
-        {
-        }
-        public NumberMonad() : base((Error)null)
-        {
-
-        }
-    }
     [TestClass]
     public class EitherTests
     {
         [TestMethod]
         public void Either_Bind_with_result_and_error()
         {
-            //var g = new NumberMonad()
-            //        .Bind(a => new NumberMonad())
-            //var g = new NumberMonad().Retrun(new Number(27));
             Assert
                 .AreEqual(
                     new Number(27 + 3).ToString(),

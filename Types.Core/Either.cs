@@ -8,10 +8,10 @@ namespace Types.Core.Monads
         where T0 : class
         where T1 : class
     {
-        public Either()
+        public Either() : base((T0)null)
         {
-        }
 
+        }
         public Either(T0 value) : base(value)
         {
         }
@@ -41,11 +41,6 @@ namespace Types.Core.Monads
             {
                 _union = new AUnion<T0, T1>(value);
             }
-            public M()
-            {
-
-            }
-
             public object Value()
             {
                 return _union.Value();
