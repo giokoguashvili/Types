@@ -13,13 +13,12 @@ namespace Types.Core.Union
             where T1 : class
         {
             var value = u.Value();
-            if (value is T0)
+            switch (value)
             {
-                return f1((T0)value);
-            }
-            else if (value is T1)
-            {
-                return f2((T1)value);
+                case T0 variable:
+                    return f1(variable);
+                case T1 _:
+                    return f2((T1)value);
             }
             throw new Exception("can't match");
         }

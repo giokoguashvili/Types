@@ -12,21 +12,20 @@ namespace Types.Core.Either
     {
         public abstract class T<M0> : 
             TUnion<T0, T1>,
-            IUnion<T0, T1>,
             IFunctor<Either<T0, T1>, T0, T1>,
             IMonad<M0, T0, T1>
             where M0 : IMonad<M0, T0, T1>
 
         {
-            public T(Func<TUnion<T0, T1>> factory) : base(factory)
+            protected T(Func<TUnion<T0, T1>> factory) : base(factory)
             {
             }
 
-            public T(T0 value) : base(value)
+            protected T(T0 value) : base(value)
             {
             }
 
-            public T(T1 value) : base(value)
+            protected T(T1 value) : base(value)
             {
             }
         }

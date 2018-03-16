@@ -8,11 +8,11 @@ namespace Types.Core.Union
     {
         private readonly Func<object> _value;
 
-        public TUnion(Func<TUnion<T0, T1>> factory) => _value = factory;
+        protected TUnion(Func<TUnion<T0, T1>> factory) => _value = factory;
 
-        public TUnion(T0 value) => _value = () => value;
+        protected TUnion(T0 value) => _value = () => value;
 
-        public TUnion(T1 value) => _value = () => value;
+        protected TUnion(T1 value) => _value = () => value;
 
         public object Value() => _value();
     }
