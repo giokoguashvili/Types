@@ -5,10 +5,6 @@ namespace Types.Tests
 {
     public class MonadB : TEither<B, Error>.M<MonadB>
     {
-        public MonadB() : base((Error)null)
-        {
-        }
-
         public MonadB(B value) : base(value)
         {
         }

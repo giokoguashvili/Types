@@ -7,7 +7,7 @@ using Types.Core.Union.Kind2;
 namespace Types.Core
 {
     public interface IFunctor<F0, T0, T1>
-        where F0 : IFunctor<F0, T0, T1>, new()
+        where F0 : IFunctor<F0, T0, T1>
         where T0 : class
         where T1 : class
     {

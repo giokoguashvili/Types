@@ -12,7 +12,7 @@ namespace Types.Core.Monads
             IUnion<T0, T1>,
             IFunctor<Either<T0, T1>, T0, T1>, 
             IMonad<M0, T0, T1>
-            where M0 : IMonad<M0, T0, T1>, new()
+            where M0 : IMonad<M0, T0, T1>
 
         {
             private readonly TUnion<T0, T1> _union;
@@ -30,10 +30,11 @@ namespace Types.Core.Monads
             }
 
             public M1 Bind<M1, T2>(Func<T0, IMonad<M1, T2, T1>> m)
-                where M1 : IMonad<M1, T2, T1>, new()
+                where M1 : IMonad<M1, T2, T1>
                 where T2 : class
             {
-                    return (M1)this.Match(m, (e) => new M1().Retrun(e));
+                
+                return (M1)this.Match(m, (e) => new Factory<M1, T1>(this, e).Instance());
             }
 
             public M0 Retrun(T0 value)
