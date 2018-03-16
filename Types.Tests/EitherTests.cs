@@ -3,7 +3,7 @@ using Types.Core.Monads;
 using Types.Core.Union;
 using Types.Tests.Common;
 using Types.Core.Union.Kind2;
-using static Types.Core.Functors;
+using static Types.Core.Either.Functor;
 
 namespace Types.Tests
 {

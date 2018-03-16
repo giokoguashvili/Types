@@ -1,4 +1,5 @@
 ﻿using System;
+using Types.Core.Either;
 using Types.Core.Union;
 using Types.Core.Union.Kind2;
 
@@ -8,7 +9,7 @@ namespace Types.Core.Monads
         where T0 : class
         where T1 : class
     {
-        public abstract class M<M0> :
+        public abstract class T<M0> :
             IUnion<T0, T1>,
             IFunctor<Either<T0, T1>, T0, T1>, 
             IMonad<M0, T0, T1>
@@ -16,14 +17,16 @@ namespace Types.Core.Monads
 
         {
             private readonly TUnion<T0, T1> _union;
-            public M(T0 value)
+            public T(T0 value)
             {
                 _union = new TUnion<T0, T1>(value);
             }
-            public M(T1 value)
+
+            public T(T1 value)
             {
                 _union = new TUnion<T0, T1>(value);
             }
+
             public object Value()
             {
                 return _union.Value();
@@ -36,26 +39,25 @@ namespace Types.Core.Monads
                 
                 return (M1)this.Match(m, (e) => new Factory<M1, T1>(this, e).Instance());
             }
+        }
+    }
 
-            public M0 Retrun(T0 value)
-            {
-                return new Factory<M0, T0>(this, value).Instance();
-            }
-  
-            public M0 Retrun(T1 value)
-            {
-                return new Factory<M0, T1>(this, value).Instance();
-            }
+    public static class Monad
+    {
+        public static M0 Retrun<M0, T0, T1>(this TEither<T0, T1>.T<M0> monad, T0 value)
+            where M0 : IMonad<M0, T0, T1>
+            where T0 : class
+            where T1 : class
+        {
+            return new Factory<M0, T0>(monad, value).Instance();
+        }
 
-            public Either<T0, T1> RetrunF(T0 value)
-            {
-                return new Factory<Either<T0, T1>, T0>(this, value).Instance();
-            }
-
-            public Either<T0, T1> RetrunF(T1 value)
-            {
-                return new Factory<Either<T0, T1>, T1>(this, value).Instance();
-            }
+        public static M0 Retrun<M0, T0, T1>(this TEither<T0, T1>.T<M0> monad, T1 value)
+            where M0 : IMonad<M0, T0, T1>
+            where T0 : class
+            where T1 : class
+        {
+            return new Factory<M0, T1>(monad, value).Instance();
         }
     }
 }

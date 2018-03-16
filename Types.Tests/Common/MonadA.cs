@@ -3,7 +3,7 @@ using Types.Tests.Common;
 
 namespace Types.Tests
 {
-    public class MonadA : TEither<A, Error>.M<MonadA>
+    public class MonadA : TEither<A, Error>.T<MonadA>
     {
         public MonadA(A value) : base(value)
         {
