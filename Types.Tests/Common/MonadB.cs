@@ -3,7 +3,7 @@ using Types.Tests.Common;
 
 namespace Types.Tests
 {
-    public class MonadB : IEither<B, Error>.M<MonadB>
+    public class MonadB : TEither<B, Error>.M<MonadB>
     {
         public MonadB() : base((Error)null)
         {
