@@ -8,7 +8,7 @@ namespace Types.Core.List
         where T1 : class
     { 
         public abstract class ParentType<M0> :
-            EList<T1>,
+            EnvelopedList<T1>,
             IFunctor<Listt<T1>, EmptyList, T1>,
             IMonad<M0, EmptyList, T1>
             where M0 : IMonad<M0, EmptyList, T1>
