@@ -3,6 +3,7 @@ using Types.Core.Monads;
 using Types.Core.Union;
 using Types.Tests.Common;
 using Types.Core.Union.Kind2;
+using static Types.Core.Functors;
 
 namespace Types.Tests
 {
@@ -70,7 +71,7 @@ namespace Types.Tests
                     new Either<Number, Error>(
                         new Error("Error")
                     )
-                    .Fmap<Either<Number, Error>, Number>(number => new Number(number.Value + 3))
+                    .Fmap(number => new Number(number.Value + 3))
                     .Match(
                         (sum) => sum.ToString(),
                         (e) => e.Message
