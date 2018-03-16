@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Types.Core.Union;
-using Types.Core.Union.Kind2;
 using Types.Tests.Common;
 
 namespace Types.Tests

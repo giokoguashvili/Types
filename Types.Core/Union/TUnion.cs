@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Types.Core.Union.Kind2
+namespace Types.Core.Union
 {
     public abstract class TUnion<T0, T1> : IUnion<T0, T1>
         where T0 : class

@@ -1,8 +1,6 @@
 ﻿using Types.Core.Either;
-using Types.Core.Monads;
-using Types.Tests.Common;
 
-namespace Types.Tests
+namespace Types.Tests.Common
 {
     public class MonadB : TEither<B, Error>.T<MonadB>
     {

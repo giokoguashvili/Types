@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Types.Core.Union.Kind2
+namespace Types.Core.Union
 {
     public static class Unions
     {

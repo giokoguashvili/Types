@@ -1,4 +1,4 @@
-﻿namespace Types.Core.Monads
+﻿namespace Types.Core
 {
     public class Factory<TResult, TInput>
     {

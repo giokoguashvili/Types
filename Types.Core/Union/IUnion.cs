@@ -1,4 +1,4 @@
-﻿namespace Types.Core.Union.Kind2
+﻿namespace Types.Core.Union
 {
     public interface IUnion<T0, T1>
     {

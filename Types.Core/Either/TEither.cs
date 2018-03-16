@@ -1,8 +1,8 @@
 ﻿using System;
 using Types.Core.Either;
-using Types.Core.Monads;
+using Types.Core.Either.Functor;
+using Types.Core.Either.Monad;
 using Types.Core.Union;
-using Types.Core.Union.Kind2;
 
 namespace Types.Core.Either
 {

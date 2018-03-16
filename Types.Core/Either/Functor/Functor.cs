@@ -1,9 +1,8 @@
 ﻿using System;
-using Types.Core.Monads;
+using Types.Core.Either.Monad;
 using Types.Core.Union;
-using Types.Core.Union.Kind2;
 
-namespace Types.Core.Either
+namespace Types.Core.Either.Functor
 {
     public static class Functor
     {
