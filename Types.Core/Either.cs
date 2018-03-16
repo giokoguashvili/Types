@@ -27,9 +27,9 @@ namespace Types.Core.Monads
 
         public abstract class M<M0> :
             IUnion<T0, T1>,
-            IFunctor<M0, T0, T1>, 
+            IFunctor<Either<T0, T1>, T0, T1>, 
             IMonad<M0, T0, T1>
-            where M0 : IMonad<M0, T0, T1>, IFunctor<M0, T0, T1>, new()
+            where M0 : IMonad<M0, T0, T1>, new()
 
         {
             private readonly AUnion<T0, T1> _union;
@@ -73,9 +73,19 @@ namespace Types.Core.Monads
                 where T2 : class
             {
                 return this.Match(
-                            (a) => new F1().Retrun(fmap(a)),
-                            (e) => new F1().Retrun(e)
+                            (a) => new F1().RetrunF(fmap(a)),
+                            (e) => new F1().RetrunF(e)
                         );
+            }
+
+            public Either<T0, T1> RetrunF(T0 value)
+            {
+                return new Factory<Either<T0, T1>, T0>(this, value).Instance();
+            }
+
+            public Either<T0, T1> RetrunF(T1 value)
+            {
+                return new Factory<Either<T0, T1>, T1>(this, value).Instance();
             }
         }
     }

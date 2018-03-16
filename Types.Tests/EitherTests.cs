@@ -64,13 +64,18 @@ namespace Types.Tests
                     )
                 );
 
-            //Assert
-            //    .AreEqual(
-            //        "Error",
-            //        new Either<Number, Error>(
-            //            new Error("Error")
-            //        ).Fmap(number => new Number(number.Value + 3))
-            //    );
+            Assert
+                .AreEqual(
+                    "Error",
+                    new Either<Number, Error>(
+                        new Error("Error")
+                    )
+                    .Fmap<Either<Number, Error>, Number>(number => new Number(number.Value + 3))
+                    .Match(
+                        (sum) => sum.ToString(),
+                        (e) => e.Message
+                    )
+                );
         }
     }
 }
