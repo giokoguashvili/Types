@@ -31,9 +31,19 @@ namespace Types.Core.List
             where T1 : class
             where T2 : class
         {
-            //monad.Aggregate(new Factory<M1, T2>(monad).Instance(), (prev, next) => prev);
-            
-            return new Factory<M1, IEnumerable<T2>>(monad, monad.SelectMany(x => new Factory<M1, IEnumerable<T2>>(monad, ((M1)m(x)).Select(y => y)).Instance()).Select(x => x)).Instance();
+            var obj = m(monad.First());  
+            return new Factory<M1, IEnumerable<T2>>(
+                    obj, 
+                        monad
+                            .SelectMany(
+                                x => new Factory<M1, IEnumerable<T2>>(
+                                        obj, 
+                                        ((M1)m(x)).Select(y => y)
+                                    ).Instance()
+                            )
+                            .Select(x => x)
+                    )
+                    .Instance();
         }
     }
 }

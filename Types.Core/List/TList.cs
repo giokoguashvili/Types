@@ -1,31 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Types.Core.Either.Functor;
+using Types.Core.Either.Monad;
 
 namespace Types.Core.List
 {
+    public abstract class TList<T1>
+        where T1 : class
+    { 
+        public abstract class T<M0> :
+            EList<T1>,
+            IFunctor<Listt<T1>, EmptyList, T1>,
+            IMonad<M0, EmptyList, T1>
+            where M0 : IMonad<M0, EmptyList, T1>
 
-    //public abstract class TList<T> : List<T>
-    //{
-    //    public abstract class T<M0> :
-    //        TUnion<T0, T1>,
-    //        IFunctor<Either<T0, T1>, T0, T1>,
-    //        IMonad<M0, T0, T1>
-    //        where M0 : IMonad<M0, T0, T1>
-
-    //    {
-    //        protected T(Func<TUnion<T0, T1>> factory) : base(factory)
-    //        {
-    //        }
-
-    //        protected T(T0 value) : base(value)
-    //        {
-    //        }
-
-    //        protected T(T1 value) : base(value)
-    //        {
-    //        }
-    //    }
-    //}
+        {
+            protected T(IEnumerable<T1> value) : base(value)
+            {
+            }
+        }
+    }
 }
