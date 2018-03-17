@@ -1,17 +1,18 @@
 ﻿using System;
+using Types.Core.New.Union;
 
 namespace Types.Core.New.Either
 {
-    public abstract class EitherFunctor<TLeft, TRight>
+    public abstract class Functor<TLeft, TRight>
         where TLeft : class
         where TRight : class
     {
         public class TParent<F>
             : TFunctor<TRight>.THead<TLeft>.IParent<F>
         {
-            private readonly TUnion<TLeft, TRight> _union;
+            private readonly IUnion<TLeft, TRight> _union;
 
-            public TParent(TUnion<TLeft, TRight> union)
+            public TParent(IUnion<TLeft, TRight> union)
             {
                 _union = union;
             }

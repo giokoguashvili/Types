@@ -12,4 +12,31 @@
         {
         }
     }
+
+    public class Error
+    {
+        public string Message { get; }
+
+        public Error(string message)
+        {
+            Message = message;
+        }
+    }
+
+    public class Right<T> : Either<Error, T>
+        where T : class
+    {
+        public Right(T right) : base(right)
+        {
+        }
+    }
+
+    public class Left<TRight> : Either<Error, TRight>
+        where TRight : class
+    {
+        public Left(Error left) : base(left)
+        {
+        }
+    }
+
 }

@@ -1,8 +1,8 @@
 namespace Types.Tests.Common
 {
-    public class Error
+    public class ErrorA
     {
-        public Error(string message)
+        public ErrorA(string message)
         {
             Message = message;
         }

@@ -15,7 +15,7 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                         "30",
-                         new Either<Error, Number>(new Number(27))
+                         new Either<ErrorA, Number>(new Number(27))
                             .Bind(v =>  new MonadC(new Number(27 + 3)))
                             .Match(l => l.ToString(), r => r.Value.ToString())
                  );
@@ -23,7 +23,7 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                         "30",
-                         new Either<Error, Number>(new Number(27))
+                         new Either<ErrorA, Number>(new Number(27))
                             .Fmap(a => new Number(a.Value +3))
                             .Match(l => l.ToString(), r => r.Value.ToString())
                  );
@@ -36,9 +36,9 @@ namespace Types.Tests
                  );
             Assert
                 .AreEqual(
-                         new Error(String.Empty).ToString(),
+                         new ErrorA(String.Empty).ToString(),
                          new MonadC(new Number(27))
-                            .Fmap(a => new Error(String.Empty))
+                            .Fmap(a => new ErrorA(String.Empty))
                             .Match(l => l.ToString(), r => r.Value.ToString())
                  );
 

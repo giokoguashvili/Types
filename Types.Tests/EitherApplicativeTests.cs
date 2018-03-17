@@ -21,14 +21,14 @@ namespace Types.Tests
         }
     }
 
-    public class EitherA : TEither<Error, IFunc<Number, Number>>.IParent<EitherA>
+    public class EitherA : TEither<ErrorA, IFunc<Number, Number>>.IParent<EitherA>
     {
         public EitherA(Func<Number, Number> f)
             : this(new FuncA(f))
         {
 
         }
-        public EitherA(Error left) : base(left)
+        public EitherA(ErrorA left) : base(left)
         {
         }
 
@@ -57,8 +57,8 @@ namespace Types.Tests
 
             Assert
                .AreEqual(
-                    new Error(String.Empty).ToString(),
-                    new MonadC(new Error(String.Empty))
+                    new ErrorA(String.Empty).ToString(),
+                    new MonadC(new ErrorA(String.Empty))
                        .Apply(new EitherA(a => new Number(a.Value + 3)))
                        .Match(
                            (e) => e.ToString(),
@@ -68,9 +68,9 @@ namespace Types.Tests
 
             Assert
                .AreEqual(
-                    new Error(String.Empty).ToString(),
+                    new ErrorA(String.Empty).ToString(),
                     new MonadC(new Number(27))
-                       .Apply(new EitherA(new Error(String.Empty)))
+                       .Apply(new EitherA(new ErrorA(String.Empty)))
                        .Match(
                            (e) => e.ToString(),
                            (r) => r.Value.ToString()

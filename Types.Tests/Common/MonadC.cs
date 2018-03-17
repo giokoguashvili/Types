@@ -2,9 +2,9 @@
 
 namespace Types.Tests.Common
 {
-    public class MonadC : TEither<Error, Number>.IParent<MonadC>
+    public class MonadC : TEither<ErrorA, Number>.IParent<MonadC>
     {
-        public MonadC(Error left) : base(left)
+        public MonadC(ErrorA left) : base(left)
         {
         }
 

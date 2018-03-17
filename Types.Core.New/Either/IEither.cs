@@ -1,4 +1,6 @@
-﻿namespace Types.Core.New.Either
+﻿using Types.Core.New.Union;
+
+namespace Types.Core.New.Either
 {
     public interface IEither<TParent, TLeft, TRight> :
         IUnion<TLeft, TRight>,

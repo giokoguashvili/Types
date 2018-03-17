@@ -1,24 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Types.Core.New.Union;
 
 namespace Types.Core.New.Either
 {
-    public abstract class EitherApplicative<TLeft, TRight>
+    public abstract class Applicative<TLeft, TRight>
            where TLeft : class
            where TRight : class
     {
         public class TParent<A>
             : TApplicative<TRight>.THead<TLeft>.IParent<A>
         {
-            private readonly TUnion<TLeft, TRight> _functor;
+            private readonly IUnion<TLeft, TRight> _functor;
 
-            public TParent(TUnion<TLeft, TRight> functor)
+            public TParent(IUnion<TLeft, TRight> functor)
             {
                 _functor = functor;
             }
 
-            public A Apply<A1, T2>(TEither<TLeft, IFunc<TRight, T2>>.IParent<A1> app)
+            public A Apply<T2>(IUnion<TLeft, IFunc<TRight, T2>> app)
                 where T2 : class
             {
                 return app.Match(
@@ -35,7 +36,7 @@ namespace Types.Core.New.Either
 
             public A Prune(TRight value)
             {
-                throw new NotImplementedException();
+                return new Factory<A, TRight>(value).Instance();
             }
         }
     }

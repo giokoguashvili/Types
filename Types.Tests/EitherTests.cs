@@ -17,11 +17,11 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                     new Number(27 + 3).ToString(),
-                    new Either<Number, Error>(
+                    new Either<Number, ErrorA>(
                         new Number(27)
                     )
                     .Bind(
-                        a => new Either<Number, Error>(
+                        a => new Either<Number, ErrorA>(
                                   new Number(a.Value + 3)
                              )
                     )
@@ -34,11 +34,11 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                     "Error",
-                    new Either<Number, Error>(
-                        new Error("Error")
+                    new Either<Number, ErrorA>(
+                        new ErrorA("Error")
                     )
                     .Bind(
-                        a => new Either<Number, Error>(
+                        a => new Either<Number, ErrorA>(
                                   new Number(a.Value + 3)
                              )
                     )
@@ -51,8 +51,8 @@ namespace Types.Tests
             Assert
                 .AreEqual(
                     "Error",
-                    new Either<Number, Error>(
-                        new Error("Error")
+                    new Either<Number, ErrorA>(
+                        new ErrorA("Error")
                     )
                     .Fmap(number => new Number(number.Value + 3))
                     .Match(
