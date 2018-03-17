@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Types.Core.Tests.Common\Types.Core.Tests.Common.csproj" />
+    <ProjectReference Include="..\Types.Core.New\Types.Core.New.csproj" />
     <ProjectReference Include="..\Types.Core\Types.Core.csproj" />
   </ItemGroup>
 

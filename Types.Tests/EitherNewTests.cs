@@ -3,21 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Types.Core.Either2;
-using Types.Core.New;
 using Types.Tests.Common;
 
 namespace Types.Tests.New
 {
-    public class MonadC : TEither<Error, Number>.IParent<MonadC>
-    {
-        public MonadC(Error left) : base(left)
-        {
-        }
-
-        public MonadC(Number right) : base(right)
-        {
-        }
-    }
 
     [TestClass]
     public class EitherTests
