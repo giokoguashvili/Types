@@ -8,19 +8,17 @@ using Types.Tests.Common;
 namespace Types.Tests.New
 {
     [TestClass]
-    public class EitherTests
+    public class EitherNewTests
     {
         [TestMethod]
         public void Either_Bind_must_be_same_type_as_param()
         {
-            var g = new Either<Error, Number>(new Number(27 + 3));
-
-            var a = new Either<Error, Number>(new Number(27))
-                        .Bind(v => g)
+            var a = 
                         .Value();
             Assert
                 .IsTrue(
-                        a.Value == 30
+                        new Either<Error, Number>(new Number(27))
+                        .Bind(v => new Either<Error, Number>(new Number(27 + 3))).Match == 30
                  );
         }
     }

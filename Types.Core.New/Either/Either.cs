@@ -19,7 +19,7 @@ namespace Types.Core.Either2
         }
         public Either(IUnion<TLeft, TRight> union)
             : this(union, new EitherMonad<TLeft, TRight>(union)) { }
-        public Either(IUnion<TLeft, TRight> union, Monad<TRight>.IParent<Either<TLeft, TRight>> eitherMonad)
+        public Either(IUnion<TLeft, TRight> union, TMonad<TRight>.IParent<Either<TLeft, TRight>> eitherMonad)
             : base(union, eitherMonad)
         {
         }
