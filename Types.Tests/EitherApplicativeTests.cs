@@ -24,7 +24,7 @@ namespace Types.Tests
 
     public class EitherA : TEither<Error, IFunc<Number, Number>>.IParent<EitherA>
     {
-        public EitherA(Func<Number, Number> f) 
+        public EitherA(Func<Number, Number> f)
             : this(new FuncA(f))
         {
 
@@ -44,17 +44,39 @@ namespace Types.Tests
         [TestMethod]
         public void Either_Bind_must_be_same_type_as_param()
         {
-            
-             Assert
-                .AreEqual(
-                    "30",
-                     new MonadC(new Number(27))
-                        .Apply(new EitherA(a => new Number(a.Value +3)))
-                        .Match(
-                            (e) => e.ToString(),
-                            (r) => r.Value.ToString()
-                         )
-                 );
+
+            Assert
+               .AreEqual(
+                   "30",
+                    new MonadC(new Number(27))
+                       .Apply(new EitherA(a => new Number(a.Value + 3)))
+                       .Match(
+                           (e) => e.ToString(),
+                           (r) => r.Value.ToString()
+                        )
+                );
+
+            Assert
+               .AreEqual(
+                    new Error(String.Empty).ToString(),
+                    new MonadC(new Error(String.Empty))
+                       .Apply(new EitherA(a => new Number(a.Value + 3)))
+                       .Match(
+                           (e) => e.ToString(),
+                           (r) => r.Value.ToString()
+                        )
+                );
+
+            Assert
+               .AreEqual(
+                   new Error(String.Empty).ToString(),
+                    new MonadC(new Number(27))
+                       .Apply(new EitherA(new Error(String.Empty)))
+                       .Match(
+                           (e) => e.ToString(),
+                           (r) => r.Value.ToString()
+                        )
+                );
         }
     }
 }
