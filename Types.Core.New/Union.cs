@@ -4,20 +4,20 @@ using System.Text;
 
 namespace Types.Core.New
 {
-    //public interface IUnion<T0, T1>
-    //{
-    //    TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1);
-    //}
-
-    public abstract class TUnion<T0, T1>
+    public interface IUnion<out T0, out T1>
     {
-        public interface IParent<U>
-        {
-            TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1);
-        }
+        TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1);
     }
 
-    public class Union<T0, T1> : AUnion<Union<T0, T1>, T0, T1>
+    //public abstract class TUnion<T0, T1>
+    //{
+    //    public interface IParent<U>
+    //    {
+    //        TResult Match<TResult>(Func<T0, TResult> f0, Func<T1, TResult> f1);
+    //    }
+    //}
+
+    public class Union<T0, T1> : TUnion<T0, T1>
     {
         public Union(Func<TUnion<T0, T1>> factory) : base(factory)
         {
@@ -32,15 +32,15 @@ namespace Types.Core.New
         }
     }
 
-    public class AUnion<P, T0, T1> : TUnion<T0, T1>.IParent<P>
+    public class TUnion<T0, T1> : IUnion<T0, T1>
     {
         private readonly Func<object> _lazyValue;
 
-        public AUnion(Func<TUnion<T0, T1>> factory) => _lazyValue = factory;
+        public TUnion(Func<TUnion<T0, T1>> factory) => _lazyValue = factory;
 
-        public AUnion(T0 value) => _lazyValue = () => value;
+        public TUnion(T0 value) => _lazyValue = () => value;
 
-        public AUnion(T1 value) => _lazyValue = () => value;
+        public TUnion(T1 value) => _lazyValue = () => value;
 
         public object Value() => _lazyValue();
 

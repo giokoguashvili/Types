@@ -1,8 +1,6 @@
 ﻿using System;
-using Types.Core.New;
-using Types.Core.New.Either;
 
-namespace Types.Core.Either2
+namespace Types.Core.New.Either
 {
     public abstract class TEither<TLeft, TRight>
         where TLeft : class
@@ -11,30 +9,30 @@ namespace Types.Core.Either2
         public abstract class IParent<E> : IEither<E, TLeft, TRight>
         {
 
-            private readonly TUnion<TLeft, TRight>.IParent<E> _union;
+            private readonly TUnion<TLeft, TRight> _union;
             private readonly TMonad<TRight>.THead<TLeft>.IParent<E> _eitherMonad;
             private readonly TFunctor<TRight>.THead<TLeft>.IParent<Either<TLeft, TRight>> _eitherFunctor;
             private readonly TApplicative<TRight>.THead<TLeft>.IParent<E> _applicative;
 
             public IParent(TLeft left)
                 : this(
-                      new AUnion<E, TLeft, TRight>(left), 
+                      new Union<TLeft, TRight>(left), 
                       new EitherFunctor<TLeft, TRight>.TParent<Either<TLeft, TRight>>(
-                            new AUnion<Either<TLeft, TRight>, TLeft, TRight>(left)
+                            new Union<TLeft, TRight>(left)
                       )
                    )
             { }
             public IParent(TRight right)
                 : this(
-                      new AUnion<E, TLeft, TRight>(right), 
+                      new Union<TLeft, TRight>(right), 
                       new EitherFunctor<TLeft, TRight>.TParent<Either<TLeft, TRight>>(
-                            new AUnion<Either<TLeft, TRight>, TLeft, TRight>(right)
+                            new Union<TLeft, TRight>(right)
                       )
                   )
             { }
 
             private IParent(
-                TUnion<TLeft, TRight>.IParent<E> union, 
+                TUnion<TLeft, TRight> union, 
                 TFunctor<TRight>.THead<TLeft>.IParent<Either<TLeft, TRight>> eitherFunctor)
                 : this(
                       union,
@@ -45,7 +43,7 @@ namespace Types.Core.Either2
             { }
 
             private IParent(
-                TUnion<TLeft, TRight>.IParent<E> union,
+                TUnion<TLeft, TRight> union,
                 TMonad<TRight>.THead<TLeft>.IParent<E> eitherMonad,
                 TFunctor<TRight>.THead<TLeft>.IParent<Either<TLeft, TRight>> eitherFunctor,
                 TApplicative<TRight>.THead<TLeft>.IParent<E> applicative

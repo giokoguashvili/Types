@@ -1,7 +1,6 @@
 ﻿using System;
-using Types.Core.New;
 
-namespace Types.Core.Either2
+namespace Types.Core.New.Either
 {
     public abstract class EitherFunctor<TLeft, TRight>
         where TLeft : class
@@ -10,9 +9,9 @@ namespace Types.Core.Either2
         public class TParent<F>
             : TFunctor<TRight>.THead<TLeft>.IParent<F>
         {
-            private readonly TUnion<TLeft, TRight>.IParent<F> _union;
+            private readonly TUnion<TLeft, TRight> _union;
 
-            public TParent(TUnion<TLeft, TRight>.IParent<F> union)
+            public TParent(TUnion<TLeft, TRight> union)
             {
                 _union = union;
             }

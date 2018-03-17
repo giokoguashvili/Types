@@ -1,7 +1,6 @@
-﻿using Types.Core.Either2;
-using Types.Tests.Common;
+﻿using Types.Core.New.Either;
 
-namespace Types.Tests.New
+namespace Types.Tests.Common
 {
     public class MonadC : TEither<Error, Number>.IParent<MonadC>
     {

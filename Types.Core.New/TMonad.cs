@@ -1,7 +1,6 @@
 ﻿using System;
-using Types.Core.New;
 
-namespace Types.Core.Either2
+namespace Types.Core.New
 {
     public abstract class TMonad<T0>
         where T0: class

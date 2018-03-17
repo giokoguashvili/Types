@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Types.Core.Either2;
 using Types.Core.New;
+using Types.Core.New.Either;
 using Types.Tests.Common;
-using Types.Tests.New;
 
 namespace Types.Tests
 {
@@ -69,7 +68,7 @@ namespace Types.Tests
 
             Assert
                .AreEqual(
-                   new Error(String.Empty).ToString(),
+                    new Error(String.Empty).ToString(),
                     new MonadC(new Number(27))
                        .Apply(new EitherA(new Error(String.Empty)))
                        .Match(

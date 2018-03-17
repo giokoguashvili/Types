@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Types.Core.Either2;
 
 namespace Types.Core.New.Either
 {
@@ -12,9 +11,9 @@ namespace Types.Core.New.Either
         public class TParent<A>
             : TApplicative<TRight>.THead<TLeft>.IParent<A>
         {
-            private readonly TUnion<TLeft, TRight>.IParent<A> _functor;
+            private readonly TUnion<TLeft, TRight> _functor;
 
-            public TParent(TUnion<TLeft, TRight>.IParent<A> functor)
+            public TParent(TUnion<TLeft, TRight> functor)
             {
                 _functor = functor;
             }

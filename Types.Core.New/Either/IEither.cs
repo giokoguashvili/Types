@@ -1,10 +1,7 @@
-﻿using System;
-using Types.Core.New;
-
-namespace Types.Core.Either2
+﻿namespace Types.Core.New.Either
 {
     public interface IEither<TParent, TLeft, TRight> :
-        TUnion<TLeft, TRight>.IParent<TParent>,
+        IUnion<TLeft, TRight>,
         TMonad<TRight>.THead<TLeft>.IParent<TParent>,
         TFunctor<TRight>.THead<TLeft>.IParent<Either<TLeft, TRight>>
         where TRight : class

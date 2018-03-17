@@ -1,15 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Types.Core.Either2;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Types.Core.New.Either;
 using Types.Tests.Common;
 
-namespace Types.Tests.New
+namespace Types.Tests
 {
 
     [TestClass]
-    public class EitherTests
+    public class EitherNewTests
     {
         [TestMethod]
         public void Either_Bind_must_be_same_type_as_param2()
