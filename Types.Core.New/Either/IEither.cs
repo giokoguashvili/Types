@@ -3,8 +3,9 @@
 namespace Types.Core.Either2
 {
     public interface IEither<TParent, TLeft, TRight> :
-               IUnion<TLeft, TRight>,
-               TMonad<TRight>.THead<TLeft>.IParent<TParent>
+        IUnion<TLeft, TRight>,
+        TMonad<TRight>.THead<TLeft>.IParent<TParent>,
+        TFunctor<TRight>.THead<TLeft>.IParent<Either<TLeft, TRight>>
         where TRight : class
         where TLeft : class
     {
