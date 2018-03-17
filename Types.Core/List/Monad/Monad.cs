@@ -23,7 +23,7 @@ namespace Types.Core.List.Monad
 
         public static M1 Bind<M0, M1, T1, T2>(this TList<T1>.ParentType<M0> monad, Func<T1, IMonad<M1, EmptyList, T2>> m)
             where M0 : IMonad<M0, EmptyList, T1>
-            where M1 : List<T2>, IMonad<M1, EmptyList, T2> 
+            where M1 : TList<T2>.ParentType<M1>, IMonad<M1, EmptyList, T2> 
             where T1 : class
             where T2 : class
         {
