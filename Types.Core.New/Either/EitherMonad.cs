@@ -10,9 +10,9 @@ namespace Types.Core.Either2
         public class TParent<E>
             : TMonad<TRight>.THead<TLeft>.IParent<E>
         {
-            private readonly IUnion<TLeft, TRight> _union;
+            private readonly TUnion<TLeft, TRight>.IParent<E> _union;
 
-            public TParent(IUnion<TLeft, TRight> union)
+            public TParent(TUnion<TLeft, TRight>.IParent<E> union)
             {
                 _union = union;
             }
