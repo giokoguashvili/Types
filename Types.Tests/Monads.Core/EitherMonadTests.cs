@@ -1,30 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Monads.Core.Either;
-using Monads.Core.Unit;
 using Types.Tests.Common;
 
 namespace Types.Tests.Monads.Core
 {
-    public class ApplicativeA : TEither<ErrorA>.Func<Number, Number>
-    {
-        public ApplicativeA(Func<Number, Number> func)
-            : this(new F<Number, Number>(func))
-        {
-
-        }
-        public ApplicativeA(Func<TUnion<ErrorA, IFunc<Number, Number>>> factory) : base(factory)
-        {
-        }
-
-        public ApplicativeA(ErrorA value) : base(value)
-        {
-        }
-
-        public ApplicativeA(IFunc<Number, Number> value) : base(value)
-        {
-        }
-    }
     [TestClass]
     public class EitherMonadTests
     {
@@ -69,6 +49,10 @@ namespace Types.Tests.Monads.Core
                         r => r.Value.ToString()
                     )
                 );
+
+            var g = new ListM<Number>(new List<Number>() {new Number(27), new Number(3)})
+                .Fmap(n => n.Value.ToString());
+
         }
     }
 }

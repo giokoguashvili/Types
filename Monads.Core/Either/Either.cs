@@ -1,5 +1,5 @@
 ﻿using System;
-using Monads.Core.Unit;
+using Monads.Core.Union;
 
 namespace Monads.Core.Either
 {
@@ -32,27 +32,6 @@ namespace Monads.Core.Either
 
         public Either(IFunc<TInput, TResult> value) : base(value)
         {
-        }
-    }
-
-
-    public interface IFunc<in TInput, out TResult>
-    {
-        TResult Execute(TInput value);
-    }
-
-    public class F<TInput, TResult> : IFunc<TInput, TResult>
-    {
-        private readonly Func<TInput, TResult> _func;
-
-        public F(Func<TInput, TResult> func)
-        {
-            _func = func;
-        }
-
-        public TResult Execute(TInput value)
-        {
-            return _func(value);
         }
     }
 }

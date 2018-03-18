@@ -1,4 +1,4 @@
-﻿namespace Monads.Core
+﻿namespace Monads.Core.Monads
 {
     public abstract class TFunctor<T1>
     {

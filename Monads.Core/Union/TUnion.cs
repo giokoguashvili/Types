@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Monads.Core.Unit
+namespace Monads.Core.Union
 {
     public abstract class TUnion<T0, T1>
     {
