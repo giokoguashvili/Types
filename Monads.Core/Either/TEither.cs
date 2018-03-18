@@ -3,6 +3,26 @@ using Monads.Core.Unit;
 
 namespace Monads.Core.Either
 {
+    public abstract class TEither<TLeft>
+    {
+
+        public abstract class Func<TInput, TResult>
+            : TEither<TLeft, IFunc<TInput, TResult>>.P<Func<TInput, TResult>>
+        {
+            public Func(Func<TUnion<TLeft, IFunc<TInput, TResult>>> factory) : base(factory)
+            {
+            }
+
+            public Func(TLeft value) : base(value)
+            {
+            }
+
+            public Func(IFunc<TInput, TResult> value) : base(value)
+            {
+            }
+        }
+    }
+
     public abstract class TEither<TLeft, TRight>
     {
         public abstract class P<E> :

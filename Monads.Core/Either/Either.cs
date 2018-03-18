@@ -15,7 +15,7 @@ namespace Monads.Core.Either
     }
 
     public class Either<TLeft, TInput, TResult>
-        : TEither<TLeft, IFunc<TInput, TResult>>.P<Either<TLeft, TInput, TResult>>
+        : TEither<TLeft>.Func<TInput, TResult>
     {
         public Either(Func<TInput, TResult> func)
             : this(new F<TInput, TResult>(func))
