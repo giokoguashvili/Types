@@ -8,7 +8,8 @@ namespace Monads.Core.Either
         public abstract class P<E> :
             TUnion<TLeft, TRight>,
             TMonad<TRight>.T<TLeft>.P<E>,
-            TFunctor<TRight>.T<TLeft>.P<E>
+            TFunctor<TRight>.T<TLeft>.P<E>,
+            TApplicative<TRight>.T<TLeft>.P<E>
         {
             public P(Func<TUnion<TLeft, TRight>> factory) : base(factory)
             {
