@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Monads.Core.Either;
+using Monads.Core.List;
+using Monads.Core.List.Type;
 using Types.Tests.Common;
 
 namespace Types.Tests.Monads.Core
@@ -50,8 +52,10 @@ namespace Types.Tests.Monads.Core
                     )
                 );
 
-            var g = new ListM<Number>(new List<Number>() {new Number(27), new Number(3)})
-                .Fmap(n => n.Value.ToString());
+            var g = new ListM<Number>(
+                        new Number(27), 
+                        new Number(3)
+                    ).Fmap(n => n.Value.ToString());
 
         }
     }

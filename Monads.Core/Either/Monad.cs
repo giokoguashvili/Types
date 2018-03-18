@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using Monads.Core.Either.Type;
 using Monads.Core.Monads;
 
 namespace Monads.Core.Either

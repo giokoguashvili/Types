@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Monads.Core.Either.Type;
 using Monads.Core.Monads;
 
 namespace Monads.Core.Either

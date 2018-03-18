@@ -1,7 +1,7 @@
 ﻿using System;
 using Monads.Core.Union;
 
-namespace Monads.Core.Either
+namespace Monads.Core.Either.Type
 {
     public class Either<TLeft, TRight> : TEither<TLeft, TRight>.P<Either<TLeft, TRight>>
     {
