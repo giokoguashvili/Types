@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Monads.Core\Monads.Core.csproj" />
     <ProjectReference Include="..\Types.Core.New\Types.Core.New.csproj" />
     <ProjectReference Include="..\Types.Core\Types.Core.csproj" />
   </ItemGroup>
