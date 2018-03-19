@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Monads.Core.Monads;
-using Monads.Core.Union;
+using Qweex.Unions;
 
 namespace Monads.Core.List.Type
 {

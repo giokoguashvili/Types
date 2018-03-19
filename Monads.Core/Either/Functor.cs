@@ -2,6 +2,7 @@
 using System.Linq;
 using Monads.Core.Either.Type;
 using Monads.Core.Monads;
+using Qweex.Unions;
 
 namespace Monads.Core.Either
 {

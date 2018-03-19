@@ -1,5 +1,5 @@
 ﻿using System;
-using Monads.Core.Union;
+using Qweex.Unions;
 
 namespace Monads.Core.Either.Type
 {

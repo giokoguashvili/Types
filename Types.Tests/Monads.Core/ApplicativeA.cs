@@ -2,8 +2,8 @@
 using Monads.Core;
 using Monads.Core.Either;
 using Monads.Core.Either.Type;
-using Monads.Core.Union;
 using Types.Tests.Common;
+using Qweex.Unions;
 
 namespace Types.Tests.Monads.Core
 {
